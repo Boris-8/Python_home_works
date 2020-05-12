@@ -7,3 +7,16 @@ var_int_2 = input("Enter second number\n")
 var_str_1 = input("Enter your name\n")
 var_str_2 = input("Enter your lastname")
 print("First number: {}, second number: {}, Name: {}, Lastname: {}".format(var_int_1, var_int_2, var_str_1, var_str_2))
+# ===================================================
+# 2. Пользователь вводит время в секундах.
+# Переведите время в часы, минуты и секунды
+# и выведите в формате чч:мм:сс. Используйте форматирование строк.
+
+seconds = input("Enter seconds")
+if seconds.isdigit():
+    seconds = int(seconds)
+    hours = seconds / 60 / 24
+    minutes = seconds / 60
+    print("чч: {}, мм: {}, сс: {}".format(hours, minutes, seconds))
+else:
+    print("Is't number!")
