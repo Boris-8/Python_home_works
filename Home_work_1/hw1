@@ -1,0 +1,9 @@
+# 1. Поработайте с переменными, создайте несколько, выведите на экран,
+# запросите у пользователя несколько чисел и строк и сохраните в переменные,
+# выведите на экран.
+
+var_int_1 = input("Enter first number\n")
+var_int_2 = input("Enter second number\n")
+var_str_1 = input("Enter your name\n")
+var_str_2 = input("Enter your lastname")
+print("First number: {}, second number: {}, Name: {}, Lastname: {}".format(var_int_1, var_int_2, var_str_1, var_str_2))
