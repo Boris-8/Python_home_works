@@ -51,3 +51,37 @@ if userNum.isdigit():
     print(maxNum)
 else:
     print("Isn't number!")
+# ==================================================
+# 5. Запросите у пользователя значения выручки и издержек фирмы.
+# Определите, с каким финансовым результатом работает фирма
+# (прибыль — выручка больше издержек, или убыток — издержки больше выручки).
+# Выведите соответствующее сообщение.
+# Если фирма отработала с прибылью, вычислите рентабельность выручки
+# (соотношение прибыли к выручке).
+# Далее запросите численность сотрудников фирмы
+# и определите прибыль фирмы в расчете на одного сотрудника.
+
+revenue = input("Enter quantity of revenue:") # Значение выручки
+costs = input("Enter quantity of costs:") # Значение издержек
+if revenue.isdigit() and costs.isdigit():
+    revenue = int(revenue)
+    costs = int(costs)
+    if revenue > costs:
+        print("Firm works with profit") # Фирма работает с прибылью
+        profit = revenue - costs # Значение прибыли
+        print("Profit is: ", profit)
+        profitability = profit / revenue # Значеине рентабельности выручки
+        print(f"Profitability is: {profitability}")
+        employeesQuantity = input("Enter quantity of employees:")
+        if employeesQuantity.isdigit():
+            employeesQuantity = int(employeesQuantity)
+            profitEmployees = profit / employeesQuantity
+            print("Firm profit per employee: {}".format(round(profitEmployees)))
+        else:
+            print("Quantity of employees is number!")
+    elif revenue == costs:
+        print("Revenue and costs are equal, profit is zero")
+    else:
+        print("Firm works with loss")
+else:
+    print("Isn't number(s)!")
