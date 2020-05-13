@@ -85,3 +85,26 @@ if revenue.isdigit() and costs.isdigit():
         print("Firm works with loss")
 else:
     print("Isn't number(s)!")
+# ==================================================
+# 6. Спортсмен занимается ежедневными пробежками.
+# В первый день его результат составил a километров.
+# Каждый день спортсмен увеличивал результат на 10 % относительно предыдущего.
+# Требуется определить номер дня, на который общий результат
+# спортсмена составить не менее b километров.
+# Программа должна принимать значения параметров a и b
+# и выводить одно натуральное число — номер дня.
+startKm = input("Enter start kilometers:\n")
+finishKm = input("Enter finish kilometers:\n")
+i = 1
+if startKm.isdigit() and finishKm.isdigit():
+    startKm = int(startKm)
+    finishKm = int(finishKm)
+    print(f"{i} day: {startKm}")
+    while startKm < finishKm:
+        i = i + 1
+        startKm = startKm + startKm / 10
+        print(f"{i} day: {startKm}")
+    else:
+        print("The athlete achieved a result on {} day ({} km)".format(i, startKm))
+else:
+    print("Isn't number(s)!")
