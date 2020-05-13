@@ -2,17 +2,17 @@
 # запросите у пользователя несколько чисел и строк и сохраните в переменные,
 # выведите на экран.
 
-var_int_1 = input("Enter first number\n")
-var_int_2 = input("Enter second number\n")
-var_str_1 = input("Enter your name\n")
-var_str_2 = input("Enter your lastname")
+var_int_1 = input("Enter first number:\n")
+var_int_2 = input("Enter second number:\n")
+var_str_1 = input("Enter your name:\n")
+var_str_2 = input("Enter your lastname:")
 print("First number: {}, second number: {}, Name: {}, Lastname: {}".format(var_int_1, var_int_2, var_str_1, var_str_2))
 # ===================================================
 # 2. Пользователь вводит время в секундах.
 # Переведите время в часы, минуты и секунды
 # и выведите в формате чч:мм:сс. Используйте форматирование строк.
 
-seconds = input("Enter seconds")
+seconds = input("Enter seconds:")
 if seconds.isdigit():
     seconds = int(seconds)
     hours = seconds / 60 / 24
@@ -33,5 +33,21 @@ if userNumber.isdigit():
     num1 = int(num1)
     num2 = int(num2)
     print(userNumber + num1 + num2)
+else:
+    print("Isn't number!")
+# ==================================================
+# 4. Пользователь вводит целое положительное число. Найдите самую большую цифру в числе.
+# Для решения используйте цикл while и арифметические операции.
+
+userNum = input("Enter number:\n")
+if userNum.isdigit():
+    userNum = int(userNum)
+    maxNum = userNum % 10
+    userNum = userNum // 10
+    while userNum > 0:
+        if userNum % 10 > maxNum:
+            maxNum = userNum % 10
+        userNum = userNum // 10
+    print(maxNum)
 else:
     print("Isn't number!")
