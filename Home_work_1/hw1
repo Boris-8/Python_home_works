@@ -1,0 +1,110 @@
+# 1. Поработайте с переменными, создайте несколько, выведите на экран,
+# запросите у пользователя несколько чисел и строк и сохраните в переменные,
+# выведите на экран.
+
+var_int_1 = input("Enter first number:\n")
+var_int_2 = input("Enter second number:\n")
+var_str_1 = input("Enter your name:\n")
+var_str_2 = input("Enter your lastname:")
+print("First number: {}, second number: {}, Name: {}, Lastname: {}".format(var_int_1, var_int_2, var_str_1, var_str_2))
+# ===================================================
+# 2. Пользователь вводит время в секундах.
+# Переведите время в часы, минуты и секунды
+# и выведите в формате чч:мм:сс. Используйте форматирование строк.
+
+seconds = input("Enter seconds:")
+if seconds.isdigit():
+    seconds = int(seconds)
+    hours = seconds / 60 / 24
+    minutes = seconds / 60
+    print("чч: {}, мм: {}, сс: {}".format(hours, minutes, seconds))
+else:
+    print("Isn't number!")
+# ===================================================
+# 3. Узнайте у пользователя число n.
+# Найдите сумму чисел n + nn + nnn. Например, пользователь ввёл число 3.
+# Считаем 3 + 33 + 333 = 369.
+
+userNumber = input("Enter number:\n")
+if userNumber.isdigit():
+    num1 = userNumber + userNumber
+    num2 = userNumber + userNumber + userNumber
+    userNumber = int(userNumber)
+    num1 = int(num1)
+    num2 = int(num2)
+    print(userNumber + num1 + num2)
+else:
+    print("Isn't number!")
+# ==================================================
+# 4. Пользователь вводит целое положительное число. Найдите самую большую цифру в числе.
+# Для решения используйте цикл while и арифметические операции.
+
+userNum = input("Enter number:\n")
+if userNum.isdigit():
+    userNum = int(userNum)
+    maxNum = userNum % 10
+    userNum = userNum // 10
+    while userNum > 0:
+        if userNum % 10 > maxNum:
+            maxNum = userNum % 10
+        userNum = userNum // 10
+    print(maxNum)
+else:
+    print("Isn't number!")
+# ==================================================
+# 5. Запросите у пользователя значения выручки и издержек фирмы.
+# Определите, с каким финансовым результатом работает фирма
+# (прибыль — выручка больше издержек, или убыток — издержки больше выручки).
+# Выведите соответствующее сообщение.
+# Если фирма отработала с прибылью, вычислите рентабельность выручки
+# (соотношение прибыли к выручке).
+# Далее запросите численность сотрудников фирмы
+# и определите прибыль фирмы в расчете на одного сотрудника.
+
+revenue = input("Enter quantity of revenue:") # Значение выручки
+costs = input("Enter quantity of costs:") # Значение издержек
+if revenue.isdigit() and costs.isdigit():
+    revenue = int(revenue)
+    costs = int(costs)
+    if revenue > costs:
+        print("Firm works with profit") # Фирма работает с прибылью
+        profit = revenue - costs # Значение прибыли
+        print("Profit is: ", profit)
+        profitability = profit / revenue # Значеине рентабельности выручки
+        print(f"Profitability is: {profitability}")
+        employeesQuantity = input("Enter quantity of employees:")
+        if employeesQuantity.isdigit():
+            employeesQuantity = int(employeesQuantity)
+            profitEmployees = profit / employeesQuantity
+            print("Firm profit per employee: {}".format(round(profitEmployees)))
+        else:
+            print("Quantity of employees is number!")
+    elif revenue == costs:
+        print("Revenue and costs are equal, profit is zero")
+    else:
+        print("Firm works with loss")
+else:
+    print("Isn't number(s)!")
+# ==================================================
+# 6. Спортсмен занимается ежедневными пробежками.
+# В первый день его результат составил a километров.
+# Каждый день спортсмен увеличивал результат на 10 % относительно предыдущего.
+# Требуется определить номер дня, на который общий результат
+# спортсмена составить не менее b километров.
+# Программа должна принимать значения параметров a и b
+# и выводить одно натуральное число — номер дня.
+startKm = input("Enter start kilometers:\n")
+finishKm = input("Enter finish kilometers:\n")
+i = 1
+if startKm.isdigit() and finishKm.isdigit():
+    startKm = int(startKm)
+    finishKm = int(finishKm)
+    print(f"{i} day: {startKm}")
+    while startKm < finishKm:
+        i = i + 1
+        startKm = startKm + startKm / 10
+        print(f"{i} day: {startKm}")
+    else:
+        print("The athlete achieved a result on {} day ({} km)".format(i, startKm))
+else:
+    print("Isn't number(s)!")
