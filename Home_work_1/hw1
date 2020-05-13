@@ -19,4 +19,19 @@ if seconds.isdigit():
     minutes = seconds / 60
     print("чч: {}, мм: {}, сс: {}".format(hours, minutes, seconds))
 else:
-    print("Is't number!")
+    print("Isn't number!")
+# ===================================================
+# 3. Узнайте у пользователя число n.
+# Найдите сумму чисел n + nn + nnn. Например, пользователь ввёл число 3.
+# Считаем 3 + 33 + 333 = 369.
+
+userNumber = input("Enter number:\n")
+if userNumber.isdigit():
+    num1 = userNumber + userNumber
+    num2 = userNumber + userNumber + userNumber
+    userNumber = int(userNumber)
+    num1 = int(num1)
+    num2 = int(num2)
+    print(userNumber + num1 + num2)
+else:
+    print("Isn't number!")
