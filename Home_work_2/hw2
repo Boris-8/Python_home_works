@@ -26,3 +26,30 @@ while j < len(myList2) - 1:
     myList2[j], myList2[j + 1] = myList2[j + 1], myList2[j]
     j += 2
 print(f"End list: {myList2}")
+# =================================================
+""" 3. Пользователь вводит месяц в виде целого числа от 1 до 12.
+Сообщить к какому времени года относится месяц (зима, весна, лето, осень).
+Напишите решения через list и через dict. """
+
+year_parts = ["Spring", "Summer", "Autumn", "Winter"]
+while True:
+    userMonth = input("Enter num of month:")
+    if userMonth.isdigit():
+        userMonth = int(userMonth)
+        if 3 <= userMonth <= 5:
+            print(year_parts[0])
+            break
+        elif 6 <= userMonth <= 8:
+            print(year_parts[1])
+            break
+        elif 9 <= userMonth <= 11:
+            print(year_parts[2])
+            break
+        elif userMonth == 12 and 1 <= userMonth <= 2:
+            print(year_parts[3])
+            break
+        else:
+            print("No such month!")
+    else:
+        print("Isn't number!")
+
