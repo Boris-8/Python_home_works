@@ -31,6 +31,7 @@ print(f"End list: {myList2}")
 Сообщить к какому времени года относится месяц (зима, весна, лето, осень).
 Напишите решения через list и через dict. """
 
+# LIST_VARIANT
 year_parts = ["Spring", "Summer", "Autumn", "Winter"]
 while True:
     userMonth = input("Enter num of month:")
@@ -52,4 +53,36 @@ while True:
             print("No such month!")
     else:
         print("Isn't number!")
+
+# DICT_VARIANT
+partsOfYear = {'Winter': "It's winter", 'Spring': "It's spring", 'Summer': "It's summer", 'Autumn': "It's autumn"}
+while True:
+    user_month = input("Enter num of month:")
+    if user_month.isdigit():
+        user_month = int(user_month)
+        if 3 <= user_month <= 5:
+            print(partsOfYear.get('Spring'))
+            break
+        elif 6 <= user_month <= 8:
+            print(partsOfYear.get('Summer'))
+            break
+        elif 9 <= user_month <= 11:
+            print(partsOfYear.get('Autumn'))
+            break
+        elif user_month == 12 and 1 <= user_month <= 2:
+            print(partsOfYear.get('Winter'))
+            break
+        else:
+            print("No such month!")
+    else:
+        print("Isn't number!")
+# ================================================
+"""4. Пользователь вводит строку из нескольких слов, разделённых пробелами.
+Вывести каждое слово с новой строки. Строки необходимо пронумеровать.
+Если в слово длинное, выводить только первые 10 букв в слове. """
+
+userString = input("Enter words separated by spaces:\n") # hello world and city
+print(userString)
+
+
 
