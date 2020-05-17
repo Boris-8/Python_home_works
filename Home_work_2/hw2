@@ -4,8 +4,25 @@
 # Элементы списка можно не запрашивать у пользователя, а указать явно, в программе.
 
 myList = [2, "Hello", True, None, 2.456, [1, 2, 4]]
-# print(len(myList))
 i = 0
 while i < len(myList):
     print(type(myList[i]))
     i = i + 1
+# =================================================
+# 2. Для списка реализовать обмен значений соседних элементов,
+# т.е. Значениями обмениваются элементы с индексами 0 и 1, 2 и 3 и т.д.
+# При нечетном количестве элементов последний сохранить на своем месте.
+# Для заполнения списка элементов необходимо использовать функцию input().
+
+myList2 = []
+i = 0
+j = 0
+while i < 5:
+    userNum = input("Enter somethink")
+    myList2.append(userNum)
+    i += 1
+print(f"Start list: {myList2}")
+while j < len(myList2) - 1:
+    myList2[j], myList2[j + 1] = myList2[j + 1], myList2[j]
+    j += 2
+print(f"End list: {myList2}")
