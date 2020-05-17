@@ -81,8 +81,11 @@ while True:
 Вывести каждое слово с новой строки. Строки необходимо пронумеровать.
 Если в слово длинное, выводить только первые 10 букв в слове. """
 
-userString = input("Enter words separated by spaces:\n") # hello world and city
-print(userString)
-
-
-
+userString = input("Enter words separated by spaces:\n") # (hello world and city)
+i = 0
+userString = userString.split()
+for ind, word in enumerate(userString):
+    if len(word) > 10:
+        print(ind, word[:10])
+    else:
+        print(ind, word)
