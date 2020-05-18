@@ -81,11 +81,43 @@ while True:
 Вывести каждое слово с новой строки. Строки необходимо пронумеровать.
 Если в слово длинное, выводить только первые 10 букв в слове. """
 
-userString = input("Enter words separated by spaces:\n") # (hello world and city)
-i = 0
+userString = input("Enter words separated by spaces:\n")
 userString = userString.split()
 for ind, word in enumerate(userString):
     if len(word) > 10:
         print(ind, word[:10])
     else:
         print(ind, word)
+# ================================================
+"""5. Реализовать структуру «Рейтинг», представляющую собой не возрастающий набор натуральных чисел.
+У пользователя необходимо запрашивать новый элемент рейтинга.
+Если в рейтинге существуют элементы с одинаковыми значениями,
+то новый элемент с тем же значением должен разместиться после них.
+    Подсказка. Например, набор натуральных чисел: 7, 5, 3, 3, 2.
+    Пользователь ввел число 3. Результат: 7, 5, 3, 3, 3, 2.
+    Пользователь ввел число 8. Результат: 8, 7, 5, 3, 3, 2.
+    Пользователь ввел число 1. Результат: 7, 5, 3, 3, 2, 1.
+    Набор натуральных чисел можно задать непосредственно в коде, например, my_list = [7, 5, 3, 3, 2]. """
+
+startRating = [3456, 654, 456, 7, 5, 3, 3, 2]
+print("#" * 40)
+print(f"Start list: {startRating}")
+userRating = input("Enter rating's element:")
+if userRating.isdigit():
+    userRating = int(userRating)
+    for el1 in startRating: # Ищем соответствие значения
+        if userRating == el1:
+            startRating.insert(startRating.index(el1), userRating)
+            break
+        break
+    for el2 in startRating: # Ищем максимальное значение
+        if userRating > el2:
+            startRating.insert(startRating.index(el2), userRating)
+            break
+    for el3 in startRating: # Ищем минимальное значение
+        if userRating < min(startRating):
+            startRating.append(userRating)
+            break
+else:
+    print("Isn't number!")
+print(f"Result: {startRating}")
