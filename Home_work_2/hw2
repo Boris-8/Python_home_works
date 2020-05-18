@@ -1,0 +1,184 @@
+# 1. Создать список и заполнить его элементами различных типов данных.
+# Реализовать скрипт проверки типа данных каждого элемента.
+# Использовать функцию type() для проверки типа.
+# Элементы списка можно не запрашивать у пользователя, а указать явно, в программе.
+
+myList = [2, "Hello", True, None, 2.456, [1, 2, 4]]
+i = 0
+while i < len(myList):
+    print(type(myList[i]))
+    i = i + 1
+# =================================================
+# 2. Для списка реализовать обмен значений соседних элементов,
+# т.е. Значениями обмениваются элементы с индексами 0 и 1, 2 и 3 и т.д.
+# При нечетном количестве элементов последний сохранить на своем месте.
+# Для заполнения списка элементов необходимо использовать функцию input().
+
+myList2 = []
+i = 0
+j = 0
+while i < 5:
+    userNum = input("Enter somethink")
+    myList2.append(userNum)
+    i += 1
+print(f"Start list: {myList2}")
+while j < len(myList2) - 1:
+    myList2[j], myList2[j + 1] = myList2[j + 1], myList2[j]
+    j += 2
+print(f"End list: {myList2}")
+# =================================================
+""" 3. Пользователь вводит месяц в виде целого числа от 1 до 12.
+Сообщить к какому времени года относится месяц (зима, весна, лето, осень).
+Напишите решения через list и через dict. """
+
+# LIST_VARIANT
+year_parts = ["Spring", "Summer", "Autumn", "Winter"]
+while True:
+    userMonth = input("Enter num of month:")
+    if userMonth.isdigit():
+        userMonth = int(userMonth)
+        if 3 <= userMonth <= 5:
+            print(year_parts[0])
+            break
+        elif 6 <= userMonth <= 8:
+            print(year_parts[1])
+            break
+        elif 9 <= userMonth <= 11:
+            print(year_parts[2])
+            break
+        elif userMonth == 12 and 1 <= userMonth <= 2:
+            print(year_parts[3])
+            break
+        else:
+            print("No such month!")
+    else:
+        print("Isn't number!")
+
+# DICT_VARIANT
+partsOfYear = {'Winter': "It's winter", 'Spring': "It's spring", 'Summer': "It's summer", 'Autumn': "It's autumn"}
+while True:
+    user_month = input("Enter num of month:")
+    if user_month.isdigit():
+        user_month = int(user_month)
+        if 3 <= user_month <= 5:
+            print(partsOfYear.get('Spring'))
+            break
+        elif 6 <= user_month <= 8:
+            print(partsOfYear.get('Summer'))
+            break
+        elif 9 <= user_month <= 11:
+            print(partsOfYear.get('Autumn'))
+            break
+        elif user_month == 12 and 1 <= user_month <= 2:
+            print(partsOfYear.get('Winter'))
+            break
+        else:
+            print("No such month!")
+    else:
+        print("Isn't number!")
+# ================================================
+"""4. Пользователь вводит строку из нескольких слов, разделённых пробелами.
+Вывести каждое слово с новой строки. Строки необходимо пронумеровать.
+Если в слово длинное, выводить только первые 10 букв в слове. """
+
+userString = input("Enter words separated by spaces:\n")
+userString = userString.split()
+for ind, word in enumerate(userString):
+    if len(word) > 10:
+        print(ind, word[:10])
+    else:
+        print(ind, word)
+# ================================================
+"""5. Реализовать структуру «Рейтинг», представляющую собой не возрастающий набор натуральных чисел.
+У пользователя необходимо запрашивать новый элемент рейтинга.
+Если в рейтинге существуют элементы с одинаковыми значениями,
+то новый элемент с тем же значением должен разместиться после них.
+    Подсказка. Например, набор натуральных чисел: 7, 5, 3, 3, 2.
+    Пользователь ввел число 3. Результат: 7, 5, 3, 3, 3, 2.
+    Пользователь ввел число 8. Результат: 8, 7, 5, 3, 3, 2.
+    Пользователь ввел число 1. Результат: 7, 5, 3, 3, 2, 1.
+    Набор натуральных чисел можно задать непосредственно в коде, например, my_list = [7, 5, 3, 3, 2]. """
+
+startRating = [3456, 654, 456, 7, 5, 3, 3, 2]
+print("#" * 40)
+print(f"Start list: {startRating}")
+userRating = input("Enter rating's element:")
+if userRating.isdigit():
+    userRating = int(userRating)
+    for el1 in startRating: # Ищем соответствие значения
+        if userRating == el1:
+            startRating.insert(startRating.index(el1), userRating)
+            break
+        break
+    for el2 in startRating: # Ищем максимальное значение
+        if userRating > el2:
+            startRating.insert(startRating.index(el2), userRating)
+            break
+    for el3 in startRating: # Ищем минимальное значение
+        if userRating < min(startRating):
+            startRating.append(userRating)
+            break
+else:
+    print("Isn't number!")
+print(f"Result: {startRating}")
+# ================================================
+"""6. * Реализовать структуру данных «Товары».
+Она должна представлять собой список кортежей.
+Каждый кортеж хранит информацию об отдельном товаре.
+В кортеже должно быть два элемента — номер товара и словарь с параметрами
+(характеристиками товара: название, цена, количество, единица измерения).
+Структуру нужно сформировать программно, т.е. запрашивать все данные у пользователя.
+    Пример готовой структуры:
+    [
+    (1, {“название”: “компьютер”, “цена”: 20000, “количество”: 5, “eд”: “шт.”}),
+    (2, {“название”: “принтер”, “цена”: 6000, “количество”: 2, “eд”: “шт.”}), 
+    (3, {“название”: “сканер”, “цена”: 2000, “количество”: 7, “eд”: “шт.”})
+    ]
+    Необходимо собрать аналитику о товарах. Реализовать словарь, в котором каждый ключ — характеристика товара, 
+    например название, а значение — список значений-характеристик, например список названий товаров.
+    Пример:
+    {
+    “название”: [“компьютер”, “принтер”, “сканер”],
+    “цена”: [20000, 6000, 2000],
+    “количество”: [5, 2, 7],
+    “ед”: [“шт.”]
+    } """
+
+my_products = []
+product1_tuple = (1, dict(Название=input("Enter product name:\n"),
+                   Цена=input("Enter product price:\n"),
+                   Количесво=input("Enter quantity products:\n"),
+                   Ед="шт."))
+product2_tuple = (2, dict(Название=input("Enter product name:\n"),
+                   Цена=input("Enter product price:\n"),
+                   Количесво=input("Enter quantity products:\n"),
+                   Ед="шт."))
+product3_tuple = (3, dict(Название=input("Enter product name:\n"),
+                   Цена=input("Enter product price:\n"),
+                   Количесво=input("Enter quantity products:\n"),
+                   Ед="шт."))
+# product1_tuple = (1, dict(Название="Компьютер",
+#                    Цена=1000,
+#                    Количество=1,
+#                    Ед="шт."))
+# product2_tuple = (2, dict(Название="Мышка",
+#                    Цена=2000,
+#                    Количество=2,
+#                    Ед="шт."))
+# product3_tuple = (3, dict(Название="Телевизор",
+#                    Цена=3000,
+#                    Количество=3,
+#                    Ед="шт."))
+my_products.append(product1_tuple)
+my_products.append(product2_tuple)
+my_products.append(product3_tuple)
+print(my_products)
+
+products_info = {"Prices:": [], "Names:": [], "Quantities:": [], "Inits:": []}
+
+for product in my_products:
+    (products_info.get("Prices:")).append(product[1].get("Цена"))
+    (products_info.get("Names:")).append(product[1].get("Название"))
+    (products_info.get("Quantities:")).append(product[1].get("Количество"))
+    (products_info.get("Inits:")).append(product[1].get("Ед"))
+print(products_info)
