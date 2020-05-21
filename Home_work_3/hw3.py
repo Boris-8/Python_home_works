@@ -35,3 +35,17 @@ def user_info(name, lastName, yearOld, city, email, phone):
 
 
 print(user_info(user_name, user_lastName, user_yearOld, user_city, user_email, user_phone))
+# ===================================================
+"""3. Реализовать функцию my_func(), которая принимает три позиционных аргумента,
+и возвращает сумму наибольших двух аргументов."""
+
+
+def my_func2(arg1, arg2, arg3): # 6, 8, 45
+    args_list = [arg1, arg2, arg3]
+    max_dig = max(args_list)
+    args_list.remove(max(args_list))
+    middle_dig = max(args_list)
+    return max_dig + middle_dig
+
+
+print(my_func2(2234, 123, 5))
