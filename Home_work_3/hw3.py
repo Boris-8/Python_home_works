@@ -14,3 +14,24 @@ def my_func(num1, num2):
 
 
 print(my_func(user_num1, user_num2))
+# ===================================================
+"""2. Реализовать функцию, принимающую несколько параметров, описывающих данные пользователя:
+имя, фамилия, год рождения, город проживания, email, телефон.
+Функция должна принимать параметры как именованные аргументы.
+Реализовать вывод данных о пользователе одной строкой."""
+
+user_name = input("Enter name:\n")
+user_lastName = input("Enter lastName:\n")
+user_yearOld = input("Enter yearOld:\n")
+user_city = input("Enter city:\n")
+user_email = input("Enter email:\n")
+user_phone = input("Enter phone:\n")
+
+
+def user_info(name, lastName, yearOld, city, email, phone):
+    return {'name': name, 'lastName': lastName,
+            'yearOld': yearOld, 'city': city,
+            'email': email, 'phone': phone}
+
+
+print(user_info(user_name, user_lastName, user_yearOld, user_city, user_email, user_phone))
