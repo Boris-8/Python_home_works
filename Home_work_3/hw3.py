@@ -49,3 +49,27 @@ def my_func2(arg1, arg2, arg3): # 6, 8, 45
 
 
 print(my_func2(2234, 123, 5))
+# ===================================================
+"""4. Программа принимает действительное положительное число x
+и целое отрицательное число y. Необходимо выполнить возведение числа x
+в степень y. Задание необходимо реализовать в виде функции my_func(x, y).
+При решении задания необходимо обойтись без встроенной функции возведения числа в степень."""
+
+
+def pow_func(number, power):
+    return number ** power
+
+
+print(pow_func(2, -4))
+
+
+def pow_func2(number, power):
+    number = 1 / number
+    result = 1
+    while power < 0:
+        result *= number
+        power += 1
+    return result
+
+
+print(pow_func2(4, -4))
